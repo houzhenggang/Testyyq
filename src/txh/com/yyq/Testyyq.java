@@ -100,20 +100,18 @@ public class Testyyq extends UiAutomatorTestCase {
 						.resourceId("com.mappn.gfan:id/yyq_home_item_tv_progress"));
 		Assert.assertEquals(true, proProcess.exists());
 		System.out.println("proProcess is " + proProcess.getText());
-		
+
 		UiObject proBar = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/yyq_home_item_pb_progress"));
 		Assert.assertEquals(true, proBar.exists());
 		System.out.println("proBar is " + proBar.exists());
-		
+
 		UiObject proBuy = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/yyq_home_item_tv_buy"));
 		Assert.assertEquals(true, proBuy.exists());
 		System.out.println("proBuy is " + proBuy.getText());
-		
-		
 
 	}
 
