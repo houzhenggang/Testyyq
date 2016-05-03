@@ -1,5 +1,7 @@
 package txh.com.yyq.unsign;
 
+import java.io.File;
+
 import junit.framework.Assert;
 
 import com.android.uiautomator.core.UiDevice;
@@ -16,9 +18,13 @@ import com.android.uiautomator.testrunner.UiAutomatorTestCase;
  * 
  */
 public class Pageyyq extends UiAutomatorTestCase {
+	UiDevice device;
+	public Pageyyq(UiDevice uidevice) {
+		device = uidevice;
+	}
 	public static void main(String[] args) {
 		String jarName = "Pageyyq";
-		String testClass = "txh.com.yyq.Pageyyq";
+		String testClass = "txh.com.yyq.unsign.Pageyyq";
 		String testName = "testCase";
 		String androidId = "1";
 		new UiAutomatorHelper(jarName, testClass, testName, androidId);
@@ -27,31 +33,41 @@ public class Pageyyq extends UiAutomatorTestCase {
 	public void testCase() throws UiObjectNotFoundException {
 		scrollPage();
 		getElements();
+		clickBuyButton();
 		scrollHorizontalList();
-		ClearNotifycation clearNotify = new ClearNotifycation(getUiDevice());
-		clearNotify.testCase();
+//		ClearNotifycation clearNotify = new ClearNotifycation(getUiDevice());
+//		clearNotify.testCase();
+		device.pressBack();//返回应用商店首页
 
 	}
 
 	/**
+	 * 未登录：点击一元抢进入一元抢首页
 	 * 1、获取最大步数：getMaxSearchSwipes();滚动到最后的步数：scrollToEnd()
 	 * ，默认不会滚动到最底部2、flingForward() 进一步滚动，到最底部 3、滚动一元抢页面，获取底部提示
 	 * 
 	 * @throws UiObjectNotFoundException
 	 */
 	public void scrollPage() throws UiObjectNotFoundException {
+		UiObject fourthNav = new UiObject(
+				new UiSelector().resourceId("com.mappn.gfan:id/fourthNav"));
+		fourthNav.clickAndWaitForNewWindow();
 		// 1、获取最大steps 2、滑动到页面底部
 		UiScrollable scroll = new UiScrollable(
 				new UiSelector().scrollable(true));
 		int steps = scroll.getMaxSearchSwipes();
 		System.out.println("max scroll steps = " + steps);
 		scroll.scrollToEnd(steps);
+		scroll.scrollToEnd(steps);
+		scroll.scrollToEnd(steps);
+		scroll.setAsVerticalList();
 		scroll.flingForward();
 		sleep(3500);
 		// 1、获取底部元素
 		UiObject endImage = new UiObject(
 				new UiSelector().className("android.widget.ImageView"));
 		Assert.assertEquals(true, endImage.exists());
+		System.out.println("end image is exists :" + endImage.exists());
 		UiObject endText = new UiObject(
 				new UiSelector().resourceId("com.mappn.gfan:id/promptText"));
 		Assert.assertEquals(true, endText.exists());
@@ -65,7 +81,6 @@ public class Pageyyq extends UiAutomatorTestCase {
 	 * @throws UiObjectNotFoundException
 	 */
 	public void getElements() throws UiObjectNotFoundException {
-		UiDevice device = getUiDevice();
 		// 1、默认滚动查找获取具备UiSelector条件元素集合list 2、再以文本条件查找对象
 		UiScrollable list = new UiScrollable(
 				new UiSelector().resourceId("com.mappn.gfan:id/yyq_home_view"));
@@ -92,6 +107,23 @@ public class Pageyyq extends UiAutomatorTestCase {
 		device.pressBack();
 
 	}
+	/**
+	 * 未登录：
+	 * 1、点击加入清单  2、点击返回
+	 * @throws UiObjectNotFoundException
+	 */
+	public void clickBuyButton() throws UiObjectNotFoundException {
+		UiObject buyButton = new UiObject(
+				new UiSelector()
+						.resourceId("com.mappn.gfan:id/yyq_home_item_tv_buy"));
+		buyButton.click();
+		UiObject signIn = new UiObject(
+				new UiSelector().resourceId("com.mappn.gfan:id/tv_sign_in"));
+		assertEquals(true, signIn.exists());
+		System.out.println("sign in page is exists : " + signIn.exists());
+		device.takeScreenshot(new File("sdcard/Download/clickBuyBtn.png"));
+		device.pressBack();
+	}
 
 	/**
 	 * 未登录水平滚动四个页面 1、设置滚动方向水平滚动：setAsHorizontalList();
@@ -107,6 +139,7 @@ public class Pageyyq extends UiAutomatorTestCase {
 		scrollH.scrollForward();
 		scrollH.scrollBackward();
 		sleep(2000);
+		
 
 	}
 

@@ -18,14 +18,13 @@ import com.android.uiautomator.testrunner.UiAutomatorTestCase;
  */
 public class ClearNotifycation extends UiAutomatorTestCase {
 	UiDevice device;
-
-	public ClearNotifycation(UiDevice uiDevice) {
-		device = uiDevice;
+	public ClearNotifycation(UiDevice uidevice) {
+		device = uidevice;
 	}
 
 	public static void main(String[] args) {
 		String jarName = "ClearNotifycation";
-		String testClass = "txh.com.yyq.ClearNotifycation";
+		String testClass = "txh.com.yyq.unsign.ClearNotifycation";
 		String testName = "testCase";
 		String androidId = "1";
 		new UiAutomatorHelper(jarName, testClass, testName, androidId);
@@ -42,13 +41,16 @@ public class ClearNotifycation extends UiAutomatorTestCase {
 	 * @throws UiObjectNotFoundException
 	 */
 	public void clickNotifcation() throws UiObjectNotFoundException {
+		UiDevice device = getUiDevice();
 		device.openNotification();
 		ArrayList<String> titleLists = new ArrayList<String>();
 		ArrayList<String> detailLists = new ArrayList<String>();
-		UiCollection notifyCounts = new UiCollection(
-				new UiSelector().packageNameMatches("com.mappn.gfan"));
+		UiCollection notifyCounts = new UiCollection(new UiSelector()
+				.resourceId("android:id/status_bar_latest_event_content")
+				.childSelector(
+						new UiSelector().packageNameMatches("com.mappn.gfan")));
+		assertEquals(true, notifyCounts.exists());
 		if (notifyCounts.exists()) {
-
 			int notifycounts = notifyCounts.getChildCount();
 			System.out.println("notifycounts is :" + notifycounts);
 			// 1、获取通知的titleName
@@ -89,12 +91,20 @@ public class ClearNotifycation extends UiAutomatorTestCase {
 			// 1、再次打开通知 2、清除某个坐标点的通知swipe() 3、清除通知栏所有通知
 			// clearNotify();4、关闭通知栏pressBack()
 			device.openNotification();
-			UiObject clearNotify = new UiObject(
+			UiObject clearNotifyHUA = new UiObject(
 					new UiSelector()
 							.resourceId("com.android.systemui:id/clear_notification"));
+			UiObject clearNotifyMI = new UiObject(
+					new UiSelector()
+							.resourceId("com.android.systemui:id/clear_all_button"));
 			device.swipe(320, 1153, 1080, 1299, 5);
 			sleep(2000);
-			clearNotify.click();
+			if (clearNotifyHUA.exists()) {
+				clearNotifyHUA.click();
+			} else if (clearNotifyMI.exists()) {
+				clearNotifyMI.click();
+			}
+
 			File path = new File("sdcard/Download/afterclearNotify.png");
 			device.takeScreenshot(path);
 			device.takeScreenshot(path);

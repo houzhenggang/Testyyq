@@ -16,10 +16,14 @@ import com.android.uiautomator.testrunner.UiAutomatorTestCase;
  * @author xiaohua
  * 
  */
-public class Testyyq extends UiAutomatorTestCase {
+public class FirstPageyyq extends UiAutomatorTestCase {
+	UiDevice device;
+	public FirstPageyyq(UiDevice uidevice){
+		device = uidevice;
+	}
 	public static void main(String[] args) {
-		String jarName = "Testyyq";
-		String testClass = "txh.com.yyq.Testyyq";
+		String jarName = "FirstPageyyq";
+		String testClass = "txh.com.yyq.unsign.FirstPageyyq";
 		String testName = "testCase";
 		String androidId = "1";
 		new UiAutomatorHelper(jarName, testClass, testName, androidId);
@@ -42,11 +46,10 @@ public class Testyyq extends UiAutomatorTestCase {
 	 * @throws UiObjectNotFoundException
 	 */
 	public void clickNav() throws UiObjectNotFoundException {
-		UiDevice device = getUiDevice();
+		device.takeScreenshot(new File("sdcard/Download/yyqpage.png"));
 		UiObject fourthNav = new UiObject(
 				new UiSelector().resourceId("com.mappn.gfan:id/fourthNav"));
 		fourthNav.clickAndWaitForNewWindow();
-		device.takeScreenshot(new File("sdcard/Download/yyqpage.png"));
 		UiObject yyqtext = new UiObject(
 				new UiSelector().className("android.widget.TextView"));
 		System.out.println("yyq  title is ： " + yyqtext.exists() + "="
@@ -61,7 +64,6 @@ public class Testyyq extends UiAutomatorTestCase {
 	 * @throws UiObjectNotFoundException
 	 */
 	public void clickGo() throws UiObjectNotFoundException {
-		UiDevice device = getUiDevice();
 		UiObject goButton = new UiObject(
 				new UiSelector().resourceId("com.mappn.gfan:id/actionGo"));
 		goButton.clickAndWaitForNewWindow();
@@ -80,10 +82,10 @@ public class Testyyq extends UiAutomatorTestCase {
 	/**
 	 * 验证商品描述元素 1、icon 2、proName 3、processBar 4、process 5、buyBotton
 	 * 
+	 * 
 	 * @throws UiObjectNotFoundException
 	 */
 	public void productElement() throws UiObjectNotFoundException {
-		UiDevice device = getUiDevice();
 		device.takeScreenshot(new File("sdcard/Download/yyqpageElement.png"));
 		UiObject proIcon = new UiObject(
 				new UiSelector()
@@ -129,7 +131,6 @@ public class Testyyq extends UiAutomatorTestCase {
 	 * @throws UiObjectNotFoundException
 	 */
 	public void clickIcon() throws UiObjectNotFoundException {
-		UiDevice device = getUiDevice();
 		UiObject icon = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/gm3_home_yyq_widget_2"));
@@ -145,9 +146,12 @@ public class Testyyq extends UiAutomatorTestCase {
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/yyq_home_item_tv_buy"));
 		buyButton.click();
+		UiObject signIn = new UiObject(
+				new UiSelector().resourceId("com.mappn.gfan:id/tv_sign_in"));
+		assertEquals(true, signIn.exists());
+		System.out.println("sign in page is exists : " + signIn.exists());
 		device.takeScreenshot(new File("sdcard/Download/clickBuyBtn.png"));
-		device.pressBack();
+		device.pressBack();//返回应用商店首页
 
 	}
-
 }
