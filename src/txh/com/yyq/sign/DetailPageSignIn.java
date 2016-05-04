@@ -8,7 +8,8 @@ import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
 /**
- * 微信登录： 1、登录后获取幸运号码 2、注销
+ * 商品详情页-微信登录-注销
+ *  1、登录后获取幸运号码 2、注销
  * 
  * @author xiaohua
  * 

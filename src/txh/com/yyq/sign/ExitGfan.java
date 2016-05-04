@@ -5,7 +5,12 @@ import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-
+/**
+ * 注销：
+ * 注销-返回应用商店首页
+ * @author xiaohua
+ *
+ */
 public class ExitGfan extends UiAutomatorTestCase {
 	UiDevice device;
 
@@ -14,7 +19,7 @@ public class ExitGfan extends UiAutomatorTestCase {
 	}
 
 	/**
-	 * 注销： 1、点击注销 2、注销后返回一元抢首页
+	 * 注销： 1、点击注销 2、注销后返回应用商店首页
 	 * 
 	 * @throws UiObjectNotFoundException
 	 */

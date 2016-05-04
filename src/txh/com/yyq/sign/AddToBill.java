@@ -7,12 +7,13 @@ import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-
+/**
+ * 机锋应用商店首页-加入清单-登录
+ * 1、点击首页的加入清单 2、使用机锋应用商店账号登录 3、登录后点击加入清单 4、注销
+ * @author xiaohua
+ *
+ */
 public class AddToBill extends UiAutomatorTestCase {
-//	UiDevice device;
-//	public AddToBill(UiDevice uidevice){
-//		device = uidevice;
-//	}
 
 	public static void main(String[] args) {
 		String jarName = "AddToBill";

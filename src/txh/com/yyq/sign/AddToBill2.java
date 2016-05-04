@@ -6,7 +6,12 @@ import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-
+/**
+ * 一元抢首页-微信登录登录-注销
+ * 1、进入一元抢首页 2、加入清单 3、登录 4、注销
+ * @author xiaohua
+ *
+ */
 public class AddToBill2 extends UiAutomatorTestCase {
 	public static void main(String[] args) {
 		String jarName = "AddToBill2";

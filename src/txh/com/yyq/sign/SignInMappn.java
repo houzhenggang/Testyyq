@@ -5,7 +5,12 @@ import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-
+/**
+ * 机锋账号登录：
+ * 
+ * @author xiaohua
+ *
+ */
 public class SignInMappn extends UiAutomatorTestCase {
 	UiDevice device;
 

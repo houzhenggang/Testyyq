@@ -5,7 +5,12 @@ import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-
+/**
+ * 微信登录：
+ * 
+ * @author xiaohua
+ *
+ */
 public class SignInWeiXin extends UiAutomatorTestCase {
 	UiDevice device;
 
@@ -19,7 +24,6 @@ public class SignInWeiXin extends UiAutomatorTestCase {
 	 * @throws UiObjectNotFoundException
 	 */
 	public void weixinSignIn() throws UiObjectNotFoundException {
-//		UiDevice device = getUiDevice();
 		UiObject weixinSignIn = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/iv_login_weichat"));
