@@ -1,10 +1,7 @@
 package txh.com.yyq.sign;
 
-import java.io.File;
-
 import txh.com.yyq.unsign.UiAutomatorHelper;
 
-import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
@@ -21,10 +18,14 @@ public class AddToBill2 extends UiAutomatorTestCase {
 	}
 	public void testCase()throws UiObjectNotFoundException{
 		addBill2();
+		Logout();
 	}
 
 	public void addBill2() throws UiObjectNotFoundException {
-		UiDevice device = getUiDevice();
+		UiObject fourthNav = new UiObject(
+				new UiSelector().resourceId("com.mappn.gfan:id/fourthNav"));
+		fourthNav.clickAndWaitForNewWindow();
+//		UiDevice device = getUiDevice();
 		UiObject addBill = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/yyq_home_item_tv_buy"));
@@ -32,8 +33,17 @@ public class AddToBill2 extends UiAutomatorTestCase {
 		SignInWeiXin signweixin = new SignInWeiXin(getUiDevice());
 		signweixin.weixinSignIn();
 		sleep(3500);
-		device.takeScreenshot(new File("sdcard/Download/afterweixinlogin.png"));
+//		device.takeScreenshot(new File("sdcard/Download/afterweixinlogin.png"));
 
+	}
+	/**
+	 * 注销：
+	 * 1、点击我的  2、点击注销
+	 * @throws UiObjectNotFoundException
+	 */
+	public void Logout()throws UiObjectNotFoundException{
+		ExitGfan exit = new ExitGfan(getUiDevice());
+		exit.exit();
 	}
 
 }

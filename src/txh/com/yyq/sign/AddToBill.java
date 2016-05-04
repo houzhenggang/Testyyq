@@ -1,17 +1,18 @@
 package txh.com.yyq.sign;
 
 
-import java.io.File;
-
 import txh.com.yyq.unsign.UiAutomatorHelper;
 
-import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
 public class AddToBill extends UiAutomatorTestCase {
+//	UiDevice device;
+//	public AddToBill(UiDevice uidevice){
+//		device = uidevice;
+//	}
 
 	public static void main(String[] args) {
 		String jarName = "AddToBill";
@@ -23,6 +24,7 @@ public class AddToBill extends UiAutomatorTestCase {
 	}
 	public void testCase()throws UiObjectNotFoundException{
 		addBill();
+		Logout();
 	}
 
 	/**
@@ -31,7 +33,7 @@ public class AddToBill extends UiAutomatorTestCase {
 	 * @throws UiObjectNotFoundException
 	 */
 	public void addBill() throws UiObjectNotFoundException {
-		UiDevice device = getUiDevice();
+//		UiDevice device = getUiDevice();
 		UiObject addBill = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/yyq_home_item_tv_buy"));
@@ -39,8 +41,20 @@ public class AddToBill extends UiAutomatorTestCase {
 		SignInMappn signinmappn = new SignInMappn(getUiDevice());
 		signinmappn.signIn();
 		addBill.click();
-		device.takeScreenshot(new File("sdcard/Download/clickaddBill.png"));
+//		device.takeScreenshot(new File("sdcard/Download/clickaddBill.png"));
 
+	}
+	/**
+	 * 注销：
+	 * 1、点击一元抢进入一元抢首页 2、点击我的 3、点击注销
+	 * @throws UiObjectNotFoundException
+	 */
+	public void Logout()throws UiObjectNotFoundException{
+		UiObject fourthNav = new UiObject(
+				new UiSelector().resourceId("com.mappn.gfan:id/fourthNav"));
+		fourthNav.clickAndWaitForNewWindow();
+		ExitGfan exit = new ExitGfan(getUiDevice());
+		exit.exit();
 	}
 
 }

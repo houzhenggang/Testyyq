@@ -1,7 +1,5 @@
 package txh.com.yyq.sign;
 
-import java.io.File;
-
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
@@ -27,7 +25,7 @@ public class SignInMappn extends UiAutomatorTestCase {
 		password.click();
 		password.setText("654321");
 		signIn.clickAndWaitForNewWindow();
-		device.takeScreenshot(new File("sdcard/Download/clickSignIn.png"));
+//		device.takeScreenshot(new File("sdcard/Download/clickSignIn.png"));
 		System.out.println("sign in sucessful!!");
 	}
 
