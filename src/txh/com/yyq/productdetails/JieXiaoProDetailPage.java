@@ -8,20 +8,16 @@ import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiScrollable;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-/**
- * 商品详情：未登录
- * 1、垂直滚动页面  2、获取商品信息 3、往期揭晓页面 4、宝贝图文 5、所有参与记录
- * @author xiaohua
- *
- */
-public class ProductDetails extends UiAutomatorTestCase {
+
+public class JieXiaoProDetailPage extends UiAutomatorTestCase {
 	UiDevice device;
-	public ProductDetails(UiDevice uidevice){
+	public JieXiaoProDetailPage(UiDevice uidevice){
 		device = uidevice;
 	}
+
 	public static void main(String[] args) {
-		String jarName = "ProductDetails";
-		String testClass = "txh.com.yyq.productdetails.ProductDetails";
+		String jarName = "JieXiaoProDetailPage";
+		String testClass = "txh.com.yyq.productdetails.JieXiaoProDetailPage";
 		String testName = "testCase";
 		String androidId = "1";
 		new UiAutomatorHelper(jarName, testClass, testName, androidId);
@@ -31,11 +27,7 @@ public class ProductDetails extends UiAutomatorTestCase {
 	public void testCase() throws UiObjectNotFoundException {
 		scrollVert();
 		getProBasicMess();
-		pastJiexiao();
-		proDetailImage();
-		allRecord();
-		userCenter();
-
+		
 	}
 
 	/**
@@ -69,34 +61,55 @@ public class ProductDetails extends UiAutomatorTestCase {
 						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_tv_name"));
 		System.out.println("proname is :" + proname.getText());
 
-		UiObject normal = new UiObject(
+		UiObject result = new UiObject(
 				new UiSelector()
-						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_rl_normal"));
-		System.out.println("normal is : " + normal.exists());
+						.resourceId("com.mappn.gfan:id/rl_lottery_result"));
+		System.out.println("result is : " + result.exists());
 
-		UiObject issue = new UiObject(
+		UiObject luckyIcon = new UiObject(
 				new UiSelector()
-						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_tv_issue"));
-		System.out.println("issue is:"  + issue.getText());
+						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_iv_luckyone_icon"));
+		System.out.println("luckyIcon is :" + luckyIcon.exists());
 
-		UiObject processBar = new UiObject(
+		UiObject luckyName = new UiObject(
 				new UiSelector()
-						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_pb_progressbar"));
-		System.out.println("processBar is : " + processBar.exists());
+						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_tv_lucky_name"));
+		System.out.println("luckyName is : " + luckyName.exists() + ","
+				+ luckyName.getText());
 
-		UiObject totalNum = new UiObject(
+		UiObject luckyIssue = new UiObject(
 				new UiSelector()
-						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_tv_total"));
-		System.out.println("totalNum is : " + totalNum.getText());
+						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_tv_lucky_issue"));
+		System.out.println("luckyIssue is : " + luckyIssue.exists() + ", "
+				+ luckyIssue.getText());
 
-		UiObject lastNum = new UiObject(
+		UiObject luckyBuy = new UiObject(
 				new UiSelector()
-						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_tv_last"));
-		System.out.println("lastNum is : " + lastNum.getText());
-		System.out.println(totalNum.getText() + ", " + lastNum.getText());
+						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_tv_lucky_buy"));
+		System.out.println("luckyBuy is : " + luckyBuy.exists() + ", "
+				+ luckyBuy.getText());
+		UiObject luckyTime = new UiObject(
+				new UiSelector()
+						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_tv_lucky_time"));
+		System.out.println("luckyTime is :" + luckyTime.exists() + ", "
+				+ luckyTime.getText());
 
+		UiObject luckyNumberText = new UiObject(
+				new UiSelector()
+						.resourceId("com.mappn.gfan:id/tv_lucky_number"));
+		System.out.println("luckyNumber is : " + luckyNumberText.exists() + ","
+				+ luckyNumberText.getText());
+		UiObject luckyNumber = new UiObject(
+				new UiSelector()
+						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_tv_lucky_number"));
+		System.out.println(luckyNumberText.getText() + luckyNumber.getText());
+
+		UiObject logindesc = new UiObject(
+				new UiSelector()
+						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_tv_logindesc"));
+		System.out.println("login  button :" + logindesc.exists());
 	}
-
+	
 	/**
 	 * 往期揭晓 1、往期揭晓页面-有数据；2、往期揭晓页面-没有数据 3、返回商品详情页
 	 * 
@@ -122,35 +135,7 @@ public class ProductDetails extends UiAutomatorTestCase {
 		backBtn.click();
 
 	}
-
-	/**
-	 * 宝贝图文 1、进入宝贝图文 2、垂直滚动3、点击返回顶部按钮 4、返回商品详情
-	 * 
-	 * @throws UiObjectNotFoundException
-	 */
-	public void proDetailImage() throws UiObjectNotFoundException {
-		UiObject detailImage = new UiObject(
-				new UiSelector()
-						.resourceId("com.mappn.gfan:id/gm3_yyq_detail_rl_gooddesc"));
-		detailImage.clickAndWaitForNewWindow();
-		sleep(2500);
-		UiScrollable scroll = new UiScrollable(
-				new UiSelector().scrollable(true));
-		scroll.setAsVerticalList();
-		scroll.flingForward();
-		scroll.flingForward();
-		// UiObject backHead = new UiObject(
-		// new UiSelector().className("android.widget.Image"));
-		// assertEquals(true, backHead.exists());
-		// if (backHead.exists()) {
-		// backHead.click();
-		// sleep(1000);
-		// }
-		UiObject backBtn = new UiObject(
-				new UiSelector().className("android.widget.ImageButton"));
-		backBtn.click();
-	}
-
+	
 	/**
 	 * 所有参与记录：
 	 * 1、获取文本信息：所有参与记录/统计时间
@@ -208,4 +193,8 @@ public class ProductDetails extends UiAutomatorTestCase {
 		backBtn.click();
 	}
 
+
+	
+	
+	
 }
