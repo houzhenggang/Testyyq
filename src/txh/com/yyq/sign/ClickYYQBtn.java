@@ -21,7 +21,15 @@ public class ClickYYQBtn extends UiAutomatorTestCase {
 		clickyyqBtn();
 		Logout();
 	}
-
+	/**
+	 * 点击详情页的一元抢：
+	 * 1、点击-
+	 * 2、点击+
+	 * 3、点击-
+	 * 4、点击一元抢
+	 * 5、点击微信登录
+	 * @throws UiObjectNotFoundException
+	 */
 	public void clickyyqBtn() throws UiObjectNotFoundException {
 		UiObject fourthNav = new UiObject(
 				new UiSelector().resourceId("com.mappn.gfan:id/fourthNav"));
