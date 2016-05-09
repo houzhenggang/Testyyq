@@ -23,6 +23,8 @@ public class TestSignCase extends UiAutomatorTestCase{
 		addbil2.testCase();
 		DetailPageSignIn detailesign = new  DetailPageSignIn();
 		detailesign.testCase();
+		ClickYYQBtn yyqBtn = new ClickYYQBtn();
+		yyqBtn.testCase();
 		
 	}
 
