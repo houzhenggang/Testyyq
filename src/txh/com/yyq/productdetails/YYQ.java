@@ -19,13 +19,17 @@ public class YYQ extends UiAutomatorTestCase {
 	}
 
 	public void testCase() throws UiObjectNotFoundException {
-		clickYYQ();
+		int i = 0;
+		while (i < 10) {
+			clickYYQ();
+			System.out.println("i = :" + i);
+			i++;
+		}
 	}
+
 	/**
-	 * 循环打开一元抢-返回应用商店首页：
-	 * 1、点击一元抢
-	 * 2、点击返回
-	 * 3、while循环运行此方法
+	 * 循环打开一元抢-返回应用商店首页： 1、点击一元抢 2、点击返回 3、while循环运行此方法
+	 * 
 	 * @throws UiObjectNotFoundException
 	 */
 	public void clickYYQ() throws UiObjectNotFoundException {
@@ -35,12 +39,7 @@ public class YYQ extends UiAutomatorTestCase {
 		UiObject back = new UiObject(
 				new UiSelector().className("android.widget.ImageButton"));
 		back.click();
-		int i = 0;
-		while (i < 10) {
-			clickYYQ();
-			System.out.println("i = :" + i);
-			i++;
-		}
+
 	}
 
 }
