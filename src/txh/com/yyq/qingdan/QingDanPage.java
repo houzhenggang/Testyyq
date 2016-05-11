@@ -1,7 +1,9 @@
 package txh.com.yyq.qingdan;
 
+import txh.com.yyq.sign.SignInWeiXin;
 import txh.com.yyq.unsign.UiAutomatorHelper;
 
+import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
@@ -34,27 +36,48 @@ public class QingDanPage extends UiAutomatorTestCase {
 	 * @throws UiObjectNotFoundException
 	 */
 	public void noPro() throws UiObjectNotFoundException {
+		UiDevice device = getUiDevice();
 		UiObject fourthNav = new UiObject(
 				new UiSelector().resourceId("com.mappn.gfan:id/fourthNav"));
 		fourthNav.clickAndWaitForNewWindow();
 		UiObject qingdan = new UiObject(
 				new UiSelector().resourceId("com.mappn.gfan:id/billRadio"));
 		qingdan.click();
-
+		UiObject signIn = new UiObject(
+				new UiSelector().resourceId("com.mappn.gfan:id/tv_sign_in"));
+		if (signIn.exists()) {
+			SignInWeiXin weixin = new SignInWeiXin(getUiDevice());
+			weixin.weixinSignIn();
+			sleep(2500);
+			System.out.println("weixin login succesful!");
+			device.click(300, 400);
+			qingdan.click();
+		}
 		UiObject noProImage = new UiObject(
 				new UiSelector().resourceId("android.widget.ImageView"));
-		System.out.println("no product image is :" + noProImage.exists());
+		if (noProImage.exists()) {
+			System.out.println("no product image is :" + noProImage.exists());
+			UiObject textView = new UiObject(
+					new UiSelector().resourceId("android.widget.TextView"));
+			System.out.println("textView is :" + textView.exists());
+			System.out.println("textView is :" + textView.getText());
 
-		UiObject textView = new UiObject(
-				new UiSelector().resourceId("android.widget.TextView"));
-		System.out.println("textView is :" + textView.exists());
-		System.out.println("textView is :" + textView.getText());
+			UiObject emptyGo = new UiObject(
+					new UiSelector()
+							.resourceId("com.mappn.gfan:id/bill_empty_go"));
+			System.out.println("empty go is :" + emptyGo.exists());
+			System.out.println("empty go is :" + emptyGo.getText());
 
-		UiObject emptyGo = new UiObject(
-				new UiSelector().resourceId("com.mappn.gfan:id/bill_empty_go"));
-		System.out.println("empty go is :" + emptyGo.exists());
-		System.out.println("empty go is :" + emptyGo.getText());
+			emptyGo.clickAndWaitForNewWindow();
 
-		emptyGo.clickAndWaitForNewWindow();
+		}
+		UiObject lists = new UiObject(
+				new UiSelector()
+						.resourceId("com.mappn.gfan:id/bill_lv_list_view"));
+		if(lists.exists()){
+			QingDanLists listname = new QingDanLists();
+			listname.testCase();
+		}
+
 	}
 }
