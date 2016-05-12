@@ -53,28 +53,29 @@ public class QingDanPage extends UiAutomatorTestCase {
 			device.click(300, 400);
 			qingdan.click();
 		}
-		UiObject noProImage = new UiObject(
-				new UiSelector().resourceId("android.widget.ImageView"));
-		if (noProImage.exists()) {
+		UiObject emptyGo = new UiObject(
+				new UiSelector().resourceId("com.mappn.gfan:id/bill_empty_go"));
+		if (emptyGo.exists()) {
+			UiObject noProImage = new UiObject(
+					new UiSelector().resourceId("android.widget.ImageView"));
 			System.out.println("no product image is :" + noProImage.exists());
-			UiObject textView = new UiObject(
+			UiObject tipsMess = new UiObject(
 					new UiSelector().resourceId("android.widget.TextView"));
-			System.out.println("textView is :" + textView.exists());
-			System.out.println("textView is :" + textView.getText());
+			System.out.println("tipsMess is :" + tipsMess.exists());
+			// System.out.println("tipsMess is :" + tipsMess.getText());
 
-			UiObject emptyGo = new UiObject(
-					new UiSelector()
-							.resourceId("com.mappn.gfan:id/bill_empty_go"));
 			System.out.println("empty go is :" + emptyGo.exists());
 			System.out.println("empty go is :" + emptyGo.getText());
-
 			emptyGo.clickAndWaitForNewWindow();
+			UiObject yyqTitle = new UiObject(
+					new UiSelector().className("android.widget.TextView"));
+			System.out.println("back to yyq page :" + yyqTitle.getText());
 
 		}
 		UiObject lists = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/bill_lv_list_view"));
-		if(lists.exists()){
+		if (lists.exists()) {
 			QingDanLists listname = new QingDanLists();
 			listname.testCase();
 		}

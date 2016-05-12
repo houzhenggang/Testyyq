@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import txh.com.yyq.unsign.UiAutomatorHelper;
 
 import com.android.uiautomator.core.UiCollection;
-import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
@@ -86,8 +85,15 @@ public class QingDanLists extends UiAutomatorTestCase {
 		etcount.clearTextField();
 		etcount.setText("2");
 		System.out.println("after setText :" + etcount.getText());
-		UiDevice device = getUiDevice();
-		device.pressBack();
+		UiObject back = new UiObject(
+				new UiSelector().className("android.widget.ImageButton"));
+		back.click();
+		UiObject fourthNav = new UiObject(
+				new UiSelector().resourceId("com.mappn.gfan:id/fourthNav"));
+		fourthNav.clickAndWaitForNewWindow();
+		UiObject qingdan = new UiObject(
+				new UiSelector().resourceId("com.mappn.gfan:id/billRadio"));
+		qingdan.click();
 
 	}
 
@@ -100,9 +106,9 @@ public class QingDanLists extends UiAutomatorTestCase {
 		UiObject billnum = new UiObject(
 				new UiSelector().resourceId("com.mappn.gfan:id/bill_tv_num"));
 		System.out.println("bill num & bill price is :" + billnum.getText());
-		UiObject mess = new UiObject(
+		UiObject tipsMessage = new UiObject(
 				new UiSelector().className("android.widget.TextView"));
-		System.out.println(mess.getText());
+		System.out.println("tipsMessage is :" + tipsMessage.getText());
 		UiObject submitBtn = new UiObject(
 				new UiSelector().resourceId("com.mappn.gfan:id/bill_tv_submit"));
 		System.out.println("submint button is :" + submitBtn.exists());
@@ -131,11 +137,21 @@ public class QingDanLists extends UiAutomatorTestCase {
 		negative.click();
 		UiObject clickallcheck = new UiObject(
 				new UiSelector().resourceId("com.mappn.gfan:id/bill_cb_all"));
+		clicksiglecheck.click();
 		clickallcheck.click();
 		delete.click();
 		UiObject positive = new UiObject(
 				new UiSelector().resourceId("com.mappn.gfan:id/btn_positive"));
 		positive.click();
+		UiObject emptyGo = new UiObject(
+				new UiSelector().resourceId("com.mappn.gfan:id/bill_empty_go"));
+		emptyGo.clickAndWaitForNewWindow();
+		UiObject yyqTitle = new UiObject(
+				new UiSelector().className("android.widget.TextView"));
+		System.out.println("back to yyq page :" + yyqTitle.getText());
+		UiObject back = new UiObject(
+				new UiSelector().className("android.widget.ImageButton"));
+		back.click();
 
 	}
 }
