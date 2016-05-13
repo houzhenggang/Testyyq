@@ -39,7 +39,7 @@ public class AddToBill extends UiAutomatorTestCase {
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/yyq_home_item_tv_buy"));
 		addBill.clickAndWaitForNewWindow();
-		SignInMappn signinmappn = new SignInMappn(getUiDevice());
+		SignInMappn signinmappn = new SignInMappn();
 		signinmappn.signIn();
 		addBill.click();
 //		device.takeScreenshot(new File("sdcard/Download/clickaddBill.png"));

@@ -2,18 +2,26 @@ package txh.com.yyq.my;
 
 import java.util.ArrayList;
 
+
 import com.android.uiautomator.core.UiCollection;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
+import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
+import txh.com.yyq.sign.SignInMappn;
 import txh.com.yyq.unsign.UiAutomatorHelper;
-
-public class UserCenter extends UiAutomatorHelper {
+/**
+ * 1、获取昵称
+ * 2、获取修改头像方式
+ * @author xiaohua
+ *
+ */
+public class HeadNickname extends UiAutomatorTestCase {
 
 	public static void main(String[] args) {
-		String jarName = "UserCenter";
-		String testClass = "txh.com.yyq.my.UserCenter";
+		String jarName = "HeadNickname";
+		String testClass = "txh.com.yyq.my.HeadNickname";
 		String testName = "testCase";
 		String androidId = "1";
 		new UiAutomatorHelper(jarName, testClass, testName, androidId);
@@ -23,7 +31,6 @@ public class UserCenter extends UiAutomatorHelper {
 	public void testCase() throws UiObjectNotFoundException {
 		clickHeadImage();
 		getAccountHeadIcon();
-		editNickName();
 
 	}
 
@@ -40,15 +47,12 @@ public class UserCenter extends UiAutomatorHelper {
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/userCenterRadio"));
 		my.click();
-		UiObject weixinchat = new UiObject(
-				new UiSelector()
-						.resourceId("com.mappn.gfan:id/iv_login_weichat"));
-		if (weixinchat.exists()) {
+		UiObject signIn = new UiObject(
+				new UiSelector().resourceId("com.mappn.gfan:id/tv_sign_in"));
+		if (signIn.exists()) {
+			SignInMappn signMapp = new SignInMappn();
+			signMapp.signIn();
 
-			weixinchat.clickAndWaitForNewWindow();
-			UiObject btnOk = new UiObject(new UiSelector().resourceId("btnOk"));
-			btnOk.clickAndWaitForNewWindow();
-			System.out.println("weixin signin sucessful!!");
 		}
 		UiObject loggedIcon = new UiObject(
 				new UiSelector().resourceId("com.mappn.gfan:id/logged_iv_icon"));
@@ -67,7 +71,7 @@ public class UserCenter extends UiAutomatorHelper {
 	}
 
 	/**
-	 * 个人中心： 1、获取机锋账号 2、修改头像 4、获取排长、相册选择、取消button
+	 * 个人中心： 1、获取机锋账号 2、修改头像 4、获取拍照、相册选择、取消button
 	 * 
 	 * @throws UiObjectNotFoundException
 	 */
@@ -99,59 +103,6 @@ public class UserCenter extends UiAutomatorHelper {
 			}
 		}
 		System.out.println("list is :" + list);
-
-	}
-
-	/**
-	 * 修改昵称 1、直接点击提交按钮 2、 set Nickname 3、提交 4、判断newNickname是否与setNickname一致
-	 * 
-	 * @throws UiObjectNotFoundException
-	 */
-	public void editNickName() throws UiObjectNotFoundException {
-		UiObject clickNickname = new UiObject(
-				new UiSelector()
-						.resourceId("com.mappn.gfan:id/user_layout_nickname"));
-		clickNickname.click();
-		UiObject setnickname = new UiObject(
-				new UiSelector()
-						.resourceId("com.mappn.gfan:id/kit_et_change_nickname"));
-		UiObject submit = new UiObject(
-				new UiSelector()
-						.resourceId("com.mappn.gfan:id/kit_btn_change_nickname_commit"));
-		submit.click();
-		setnickname.setText("balabala");
-		String setNickname = setnickname.getText();
-		submit.click();
-		UiObject userName = new UiObject(
-				new UiSelector()
-						.resourceId("com.mappn.gfan:id/user_tv_nick_name"));
-		String newNickname = userName.getText();
-		if (newNickname.equals(setNickname)) {
-			System.out.println("newNickname equals setnickname !!");
-		}
-
-	}
-
-	/**
-	 * 4、修改密码
-	 * 
-	 * @throws UiObjectNotFoundException
-	 */
-	public void editPassword() throws UiObjectNotFoundException {
-		UiObject clickEditPassword = new UiObject(
-				new UiSelector()
-						.resourceId("com.mappn.gfan:id/user_layout_password"));
-		clickEditPassword.click();
-		
-
-	}
-
-	/**
-	 * 5、地址管理
-	 * 
-	 * @throws UiObjectNotFoundException
-	 */
-	public void editAddress() throws UiObjectNotFoundException {
 
 	}
 }
