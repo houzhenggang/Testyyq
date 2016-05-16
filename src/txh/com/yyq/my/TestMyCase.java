@@ -29,6 +29,9 @@ public class TestMyCase extends UiAutomatorTestCase{
 		changepwd.testCase();
 		ManageAddress editadd = new ManageAddress();
 		editadd.testCase();
+		Recharge recharge = new Recharge();
+		recharge.testCase();
+		
 
 	}
 

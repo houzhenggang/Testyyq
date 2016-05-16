@@ -31,6 +31,7 @@ public class SignInMappn extends UiAutomatorTestCase {
 		signIn.clickAndWaitForNewWindow();
 //		device.takeScreenshot(new File("sdcard/Download/clickSignIn.png"));
 		System.out.println("imopan507 sign in sucessful!!");
+		sleep(2000);
 	}
 
 }
