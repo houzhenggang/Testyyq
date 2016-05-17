@@ -1,6 +1,7 @@
 package txh.com.yyq.my;
 
 import jp.jun_nama.test.utf7ime.helper.Utf7ImeHelper;
+import txh.com.yyq.sign.SignInMappn;
 import txh.com.yyq.unsign.UiAutomatorHelper;
 
 import com.android.uiautomator.core.UiObject;
@@ -52,16 +53,9 @@ public class ChangePassword extends UiAutomatorTestCase{
 						.resourceId("com.mappn.gfan:id/uc_changepsw_btn_make_sure"));
 		makeSureChange.click();
 		System.out.println("change password success!!");
-
-		UiObject username = new UiObject(
-				new UiSelector().resourceId("com.mappn.gfan:id/et_user_name"));
-		username.setText(Utf7ImeHelper.e("imopan507"));
-		UiObject userpassword = new UiObject(
-				new UiSelector().resourceId("com.mappn.gfan:id/et_user_psd"));
-		userpassword.setText(Utf7ImeHelper.e("654321"));
-		UiObject signButton = new UiObject(
-				new UiSelector().resourceId("com.mappn.gfan:id/tv_sign_in"));
-		signButton.click();
+		
+		SignInMappn sign = new SignInMappn();
+		sign.signIn("imopan507", "654321" );
 
 	}
 

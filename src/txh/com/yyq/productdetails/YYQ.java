@@ -13,7 +13,7 @@ public class YYQ extends UiAutomatorTestCase {
 		String jarName = "YYQ";
 		String testClass = "txh.com.yyq.productdetails.YYQ";
 		String testName = "testCase";
-		String androidId = "1";
+		String androidId = "2";
 		new UiAutomatorHelper(jarName, testClass, testName, androidId);
 
 	}
