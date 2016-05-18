@@ -39,15 +39,15 @@ public class ChangePassword extends UiAutomatorTestCase{
 		UiObject oldPasswrod = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/uc_changepsw_et_old_psw"));
-		oldPasswrod.setText(Utf7ImeHelper.e("123456"));
+		oldPasswrod.setText(Utf7ImeHelper.e("654321"));
 		UiObject newPassword = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/uc_changepsw_et_new_psw"));
-		newPassword.setText(Utf7ImeHelper.e("654321"));
+		newPassword.setText(Utf7ImeHelper.e("123456"));
 		UiObject confirmPassword = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/uc_changepsw_et_confirm_psw"));
-		confirmPassword.setText(Utf7ImeHelper.e("654321"));
+		confirmPassword.setText(Utf7ImeHelper.e("123456"));
 		UiObject makeSureChange = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/uc_changepsw_btn_make_sure"));
@@ -55,7 +55,7 @@ public class ChangePassword extends UiAutomatorTestCase{
 		System.out.println("change password success!!");
 		
 		SignInMappn sign = new SignInMappn();
-		sign.signIn("imopan507", "654321" );
+		sign.signIn("imopan507", "123456" );
 
 	}
 

@@ -31,6 +31,8 @@ public class TestMyCase extends UiAutomatorTestCase{
 		editadd.testCase();
 		Recharge recharge = new Recharge();
 		recharge.testCase();
+		AllGrabRecord allrecord = new AllGrabRecord();
+		allrecord.testCase();
 		
 
 	}
