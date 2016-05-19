@@ -33,7 +33,10 @@ public class TestMyCase extends UiAutomatorTestCase{
 		recharge.testCase();
 		AllGrabRecord allrecord = new AllGrabRecord();
 		allrecord.testCase();
-		
+		RunningGrabRecord runningrecord = new RunningGrabRecord();
+		runningrecord.testCase();
+		JXGrabRecord jxrecord = new JXGrabRecord();
+		jxrecord.testCase();
 
 	}
 

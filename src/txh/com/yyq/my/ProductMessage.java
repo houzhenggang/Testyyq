@@ -20,7 +20,6 @@ public class ProductMessage extends UiAutomatorTestCase {
 		checkRunningInfo();
 		checkResultInfo();
 		runningBuyAgain();
-		runningBuyAgain();
 		resultBuyAgain();
 
 	}
@@ -158,6 +157,7 @@ public class ProductMessage extends UiAutomatorTestCase {
 
 	/**
 	 * 追加、再抢一次 抢宝详情相同的信息: 参与信息：日期、人次
+	 * 查看号码：获取号码
 	 * 
 	 * @throws UiObjectNotFoundException
 	 */
@@ -201,6 +201,7 @@ public class ProductMessage extends UiAutomatorTestCase {
 			}
 		}
 		System.out.println("list is :" + lists);
+		//查看号码
 		UiObject checkNum = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/record_info_item_detail"));
