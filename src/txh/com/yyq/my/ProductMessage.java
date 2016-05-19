@@ -156,8 +156,7 @@ public class ProductMessage extends UiAutomatorTestCase {
 	}
 
 	/**
-	 * 追加、再抢一次 抢宝详情相同的信息: 参与信息：日期、人次
-	 * 查看号码：获取号码
+	 * 追加、再抢一次 抢宝详情相同的信息: 参与信息：日期、人次 查看号码：获取号码
 	 * 
 	 * @throws UiObjectNotFoundException
 	 */
@@ -201,7 +200,7 @@ public class ProductMessage extends UiAutomatorTestCase {
 			}
 		}
 		System.out.println("list is :" + lists);
-		//查看号码
+		// 查看号码
 		UiObject checkNum = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/record_info_item_detail"));
@@ -274,6 +273,10 @@ public class ProductMessage extends UiAutomatorTestCase {
 				System.out.println("抢宝记录页的参与期号与参看详情页的参与期号不一致！");
 			}
 			grabDetails();
+			UiObject back = new UiObject(
+					new UiSelector().className("android.widget.ImageButton"));
+			back.click();
+			back.click();
 		}
 	}
 
@@ -345,7 +348,7 @@ public class ProductMessage extends UiAutomatorTestCase {
 			runningBuyAgain.clickAndWaitForNewWindow(2000);
 			UiObject yyqlist = new UiObject(
 					new UiSelector()
-							.resourceId("com.mappn.gfan:id/gm3_yyq_detail_btn_in_indiana_normal"));
+							.resourceId("com.mappn.gfan:id/yyq_detail_rv_list"));
 			assertEquals(true, yyqlist.exists());
 			UiObject normalBtn = new UiObject(
 					new UiSelector()

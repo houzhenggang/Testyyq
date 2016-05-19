@@ -31,12 +31,15 @@ public class TestMyCase extends UiAutomatorTestCase{
 		editadd.testCase();
 		Recharge recharge = new Recharge();
 		recharge.testCase();
-		AllGrabRecord allrecord = new AllGrabRecord();
-		allrecord.testCase();
-		RunningGrabRecord runningrecord = new RunningGrabRecord();
-		runningrecord.testCase();
-		JXGrabRecord jxrecord = new JXGrabRecord();
-		jxrecord.testCase();
+		ScrollGrabRecord scroll = new ScrollGrabRecord();
+		scroll.testCase();
+		Running run = new Running();
+		run.testCase();
+		Published published = new Published();
+		published.testCase();
+		AllRecords records = new AllRecords();
+		records.testCase();
+		
 
 	}
 
