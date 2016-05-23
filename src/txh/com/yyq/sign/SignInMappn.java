@@ -18,14 +18,9 @@ import com.android.uiautomator.testrunner.UiAutomatorTestCase;
  * 
  */
 public class SignInMappn extends UiAutomatorTestCase {
-	
-	// UiDevice device;
-	//
-	// public SignInMappn(UiDevice uidevice) {
-	// device = uidevice;
-	// }
 
-	public void signIn(String name , String passwd) throws UiObjectNotFoundException {
+	public void signIn(String name, String passwd)
+			throws UiObjectNotFoundException {
 		UiObject username = new UiObject(
 				new UiSelector().resourceId("com.mappn.gfan:id/et_user_name"));
 		UiObject password = new UiObject(
@@ -41,18 +36,25 @@ public class SignInMappn extends UiAutomatorTestCase {
 		System.out.println("imopan507 sign in sucessful!!");
 		sleep(2000);
 	}
-	
+
 	public void signIn() throws UiObjectNotFoundException {
+		File dest = new File("sdcard/Download/data.txt");
 		String data = null;
 		try {
-			data = FileUtil.readTextFile(new File("pass.txt"));
+			FileUtil.writeTextFile(dest, "imopan507:654321");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			data = FileUtil.readTextFile(dest);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		String[] up = data.split(":");
-		System.out.println("name:"+up[0]);
-		System.out.println("pass:"+up[1]);
+		System.out.println("name:" + up[0]);
+		System.out.println("pass:" + up[1]);
 		signIn(up[0], up[1]);
 	}
 

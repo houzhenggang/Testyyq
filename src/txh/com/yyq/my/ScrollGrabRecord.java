@@ -5,9 +5,9 @@ import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiScrollable;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 
 import txh.com.yyq.sign.SignInMappn;
-import txh.com.yyq.unsign.UiAutomatorHelper;
 
 public class ScrollGrabRecord extends UiAutomatorTestCase {
 

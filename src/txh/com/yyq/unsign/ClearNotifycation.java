@@ -9,6 +9,7 @@ import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 
 /**
  * 1、打开通知栏 2、获取通知栏机锋应用商店的通知 3、点击某个通知 4、打开通知栏 ，清除通知栏信息 5、关闭通知栏

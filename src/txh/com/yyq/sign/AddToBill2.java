@@ -1,11 +1,11 @@
 package txh.com.yyq.sign;
 
-import txh.com.yyq.unsign.UiAutomatorHelper;
 
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 /**
  * 一元抢首页-微信登录登录-注销
  * 1、进入一元抢首页 2、加入清单 3、登录 4、注销

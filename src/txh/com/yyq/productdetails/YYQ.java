@@ -1,11 +1,11 @@
 package txh.com.yyq.productdetails;
 
-import txh.com.yyq.unsign.UiAutomatorHelper;
 
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 
 public class YYQ extends UiAutomatorTestCase {
 

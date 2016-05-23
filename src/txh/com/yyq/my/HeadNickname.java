@@ -8,9 +8,9 @@ import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 
 import txh.com.yyq.sign.SignInMappn;
-import txh.com.yyq.unsign.UiAutomatorHelper;
 /**
  * 1、获取昵称
  * 2、获取修改头像方式

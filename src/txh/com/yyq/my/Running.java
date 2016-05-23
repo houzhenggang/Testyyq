@@ -1,13 +1,15 @@
 package txh.com.yyq.my;
 
-import txh.com.yyq.unsign.UiAutomatorHelper;
 
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 
 public class Running extends UiAutomatorTestCase{
 
 	/**
+	 * 进行中
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {

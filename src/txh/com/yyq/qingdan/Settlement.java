@@ -2,13 +2,13 @@ package txh.com.yyq.qingdan;
 
 import java.util.ArrayList;
 
-import txh.com.yyq.unsign.UiAutomatorHelper;
 
 import com.android.uiautomator.core.UiCollection;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 
 public class Settlement extends UiAutomatorTestCase {
 	public static void main(String[] args) {

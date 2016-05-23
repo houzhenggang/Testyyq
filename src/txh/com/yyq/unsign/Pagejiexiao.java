@@ -10,6 +10,7 @@ import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiScrollable;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 
 /**
  * 未登录 1、揭晓页面 2、垂直滚动 3、滚动getChildText() 4、水平滚动 5、操作通知栏

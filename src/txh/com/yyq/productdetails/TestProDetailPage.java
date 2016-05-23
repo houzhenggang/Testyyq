@@ -1,9 +1,9 @@
 package txh.com.yyq.productdetails;
 
-import txh.com.yyq.unsign.UiAutomatorHelper;
 
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 
 public class TestProDetailPage extends UiAutomatorTestCase{
 

@@ -1,11 +1,11 @@
 package txh.com.yyq.my;
 
-import txh.com.yyq.unsign.UiAutomatorHelper;
 
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 
 public class AllRecords extends UiAutomatorTestCase {
 
@@ -27,7 +27,7 @@ public class AllRecords extends UiAutomatorTestCase {
 		UiObject all = new UiObject(
 				new UiSelector()
 						.resourceId("com.mappn.gfan:id/logged_tv_all_records"));
-		all.click();//进入全部页面
+		all.click();//进入全部抢宝贝页面
 		AllGrabRecord allrecord = new AllGrabRecord();
 		allrecord.testCase();
 		RunningGrabRecord runningrecord = new RunningGrabRecord();

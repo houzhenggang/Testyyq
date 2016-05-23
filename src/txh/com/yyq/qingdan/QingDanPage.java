@@ -1,13 +1,13 @@
 package txh.com.yyq.qingdan;
 
 import txh.com.yyq.sign.SignInWeiXin;
-import txh.com.yyq.unsign.UiAutomatorHelper;
 
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 
 /**
  * 清单： 1、有商品 2、没有商品

@@ -3,7 +3,6 @@ package txh.com.yyq.my;
 import java.util.ArrayList;
 
 import jp.jun_nama.test.utf7ime.helper.Utf7ImeHelper;
-import txh.com.yyq.unsign.UiAutomatorHelper;
 
 import com.android.uiautomator.core.UiCollection;
 import com.android.uiautomator.core.UiObject;
@@ -11,6 +10,7 @@ import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiScrollable;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 
 /**
  * 地址管理： 1、获取地址管理列表已有的地址数量 2、编辑已有的地址 3、删除地址 4、[添加地址] 5、[添加]地址

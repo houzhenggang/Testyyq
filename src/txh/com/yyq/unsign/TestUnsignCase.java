@@ -2,6 +2,7 @@ package txh.com.yyq.unsign;
 
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 /**
  * 登录-注销
  * 1、执行方法类 2、调用类的实例对象，执行其他类中的方法

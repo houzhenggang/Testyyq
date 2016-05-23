@@ -2,12 +2,12 @@ package txh.com.yyq.my;
 
 import jp.jun_nama.test.utf7ime.helper.Utf7ImeHelper;
 import txh.com.yyq.sign.SignInMappn;
-import txh.com.yyq.unsign.UiAutomatorHelper;
 
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 
 /**
  * 充值： 1、获取原有机锋券 2、充值

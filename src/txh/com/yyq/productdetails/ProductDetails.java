@@ -1,6 +1,5 @@
 package txh.com.yyq.productdetails;
 
-import txh.com.yyq.unsign.UiAutomatorHelper;
 
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
@@ -8,6 +7,7 @@ import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiScrollable;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import com.txh.yyq.uiautomatorhelper.UiAutomatorHelper;
 /**
  * 商品详情：未登录
  * 1、垂直滚动页面  2、获取商品信息 3、往期揭晓页面 4、宝贝图文 5、所有参与记录
